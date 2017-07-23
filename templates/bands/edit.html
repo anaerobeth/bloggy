@@ -1,0 +1,6 @@
+<h1>Edit Band</h1>
+
+<%= form_for(band, {action: bandPath({ band_id: band.ID }), method: "PUT"}) { %>
+  <%= partial("bands/form.html") %>
+  <a href="<%= bandsPath({ band_id: band.ID }) %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>

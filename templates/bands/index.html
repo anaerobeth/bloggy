@@ -1,0 +1,31 @@
+<h1>Bands</h1>
+<p>
+  <a href="<%= newBandsPath() %>" class="btn btn-primary">Create New Band</a>
+</p>
+
+<table class="table table-striped">
+  <thead>
+  <th>Name</th>
+    <th>Bio</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (band) in bands { %>
+      <tr>
+      <td><%= band.Name %></td>
+        <td><%= band.Bio %></td>
+        <td>
+          <div class="pull-right">
+            <a href="<%= bandPath({ band_id: band.ID }) %>" class="btn btn-info">View</a>
+            <a href="<%= editBandPath({ band_id: band.ID }) %>" class="btn btn-warning">Edit</a>
+            <a href="<%= bandPath({ band_id: band.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>
